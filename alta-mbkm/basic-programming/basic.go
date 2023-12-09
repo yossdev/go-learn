@@ -113,20 +113,26 @@ func primeNumber(number int) bool {
 }
 
 //* Problem 5 - Palindrome
-func palindrome(input string) bool {
-	runeStr := input
-	var res string
+func palindrome(input string) {
+	str := input
+	var isPalindrome bool
 
-	for i := 0; i < len(runeStr); i++ {
-		res += string(runeStr[len(runeStr) - (1 + i)])
+	for i := 0; i < len(str); i++ {
+		currRune := str[i]
+		cmpRune := str[len(str)-1-i]
+		if currRune != cmpRune {
+			break
+		}
+		if i == len(str)-1 {
+			isPalindrome = true
+		}
 	}
-	
-	if input == res {
+
+	if isPalindrome {
 		fmt.Println("Palindrome")
-		return true
+	} else {
+		fmt.Println("Bukan palindrome")
 	}
-	fmt.Println("Bukan palindrome")
-	return false
 }
 
 //* Problem 6 - Exponentiation
